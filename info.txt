@@ -1,0 +1,54 @@
+- shelljs
+   
+   ShellJS is a portable (Windows/Linux/OS X) implementation of Unix shell commands on top of the Node.js API. You can use it to eliminate your shell script's dependency on Unix while still keeping its familiar and powerful commands. You can also install it globally so you can run it from outside Node projects - say goodbye to those  gnarly Bash scripts!
+   
+
+   USAGE:
+
+   > npm install shelljs
+   
+   > var shell = require('shelljs');
+   shell.mkdir('-p', fullPath); // fullpath = 'c:\hello\world\'
+   
+   Available options:
+   	
+   p: full path (will create intermediate dirs if necessary)
+
+
+- The below format is what get passed to javascript compiler when we write down our nodejs code and run it.
+   (function (exports, require, module, __filename, __dirname) { var person = { 
+    name: 'PANKAJ'                                                           
+   }
+   });                                                                            
+
+  for the code in file say xyz.js as
+  var person = { 
+    name: 'PANKAJ'                                                           
+   }
+
+- REPL
+
+Node.js comes with virtual environment called REPL (aka Node shell). REPL stands for Read-Eval-Print-Loop.
+
+
+- DEBUGGING:
+
+nodemon inspect app.js  (for dynamic restart of the server)
+else,
+
+node inspect app.js 
+
+then use either 'n' or 'c' and then use 'repl' command to start inspecting the object and variables.
+
+
+
+
+-
+ $ node --inspect-brk debugging.js (press enter then)
+
+ 
+
+
+
+
+
