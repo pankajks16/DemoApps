@@ -3,25 +3,32 @@ const fs = require('fs');
 //const os = require('os');	
 const notes = require('./notes.js');
 const _ = require('lodash');
-//var user  = os.userInfo();
-
-
-
-
-
-
+// var user  = os.userInfo();
 // yargs is a 3rd party module from npm and is used to extract the run time arguments passed to the app.js 
 // file while running it.
 
 //console.log(process.argv);
 
 var yargs = require('yargs');   // look out in npmjs.org
+
+
+var newArgv = yargs.command('press1', 'please type press 1', {
+	title: {
+		describe: "key to process the work ... ",
+		demand: true,
+		alias: 't'
+	}
+}).
+help().
+argv;
+
+
 var argv = yargs.argv;
 console.log('\n Yargs : \n', argv);
 // /console.log(argv.pankaj, argv.hello);
 
-var input = process.argv[2]
-
+var input = argv._[0];
+	
 console.log('Command is :', input);	
 if (input === 'add') {
 	console.log(notes.addNote(argv.title));
@@ -48,6 +55,8 @@ if (input === 'add') {
 	} else {
 		console.log("Note title exists. So cannot create a note. Retry with different title !!!");
 	}
+} else if (input === undefined) {
+	console.log('Please enter an input command to process ... ');
 } else {
 	console.log('Unknown command entered ...');
 }
