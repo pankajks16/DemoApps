@@ -12,7 +12,7 @@ const _ = require('lodash');
 var yargs = require('yargs');   // look out in npmjs.org
 
 
-var newArgv = yargs.command('press1', 'please type press 1', {
+var newArgv = yargs.command('list', 'please type press 1', {
 	title: {
 		describe: "key to process the work ... ",
 		demand: true,
@@ -36,7 +36,10 @@ if (input === 'add') {
 	var result = notes.removeNote(argv.title);
 	console.log('Result : ' + result);
 } else if (input === 'list') {
-	console.log(notes.getAll());
+	var completeNotes = notes.getAll();
+	console.log(completeNotes);
+	console.log(`Reading ${completeNotes.length} no(s) of notes ... `);
+	completeNotes.forEach((note) => notes.logNotes(note));
 } else if (input === 'read') {
 	var count = notes.readNote(argv.title);
 	if (count.length === 0){

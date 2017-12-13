@@ -36,6 +36,12 @@ var readNote = (title) => {
 };
 
 
+var logNotes = (note) => {
+	console.log('\nThe note is -------- ');
+	console.log(`Tiltle: ${note.title}`);
+	console.log(`Content: ${note.content}`);
+};
+
 var removeNote = (title) => {
 	//return 'Removed title : ' + title;
 	var note = fetchNotes();
@@ -49,7 +55,7 @@ var removeNote = (title) => {
 };
 
 var getAll = () => {
-	return 'All contents retrieved ... ';
+	return fetchNotes();
 };
 
 var addJsonNote = (title, content) => {
@@ -81,7 +87,8 @@ module.exports = {
 		removeNote,						// as it is directly instead of writing twice the same thing
 		getAll,
 		addJsonNote,
-		readNote
+		readNote,
+		logNotes
 };
 
 // module.exports = {
