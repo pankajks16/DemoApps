@@ -12,13 +12,26 @@ const _ = require('lodash');
 var yargs = require('yargs');   // look out in npmjs.org
 
 
-var newArgv = yargs.command('list', 'please type press 1', {
-	title: {
-		describe: "key to process the work ... ",
+var newArgv = yargs
+	.command('addNote', 'please type press 1', {
+		title: {
+			describe: "Title for the object to store",
+			demand: true,
+			alias: 't'
+		},
+		content: {
+		describe: "content fot the title passed",
 		demand: true,
-		alias: 't'
-	}
-}).
+		alias: 'c'	
+		}
+	})
+	.command('read', 'Read the content', {
+		title: {
+			describe: "Title for which the content is retrieved",
+			demand: true,
+			alias: 't'
+		}
+	}).
 help().
 argv;
 
@@ -30,6 +43,7 @@ console.log('\n Yargs : \n', argv);
 var input = argv._[0];
 	
 console.log('Command is :', input);	
+
 if (input === 'add') {
 	console.log(notes.addNote(argv.title));
 } else if (input === 'remove') {

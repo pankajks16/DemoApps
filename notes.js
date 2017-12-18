@@ -80,12 +80,12 @@ var addJsonNote = (title, content) => {
 		return obj;
 	}
 };
-//follow below eway when coding like : var add = (a, b) => { return 'hello ' + (a+b); }
+//follow below way when coding like : var add = (a, b) => { return 'hello ' + (a+b); }
 
 module.exports = {
 		addNote,						// when the key and value are equal, then we can simply write the value 
-		removeNote,						// as it is directly instead of writing twice the same thing
-		getAll,
+		removeNote,						// as it is directly instead of writing twice the same thing with colon
+		getAll,							// in between them
 		addJsonNote,
 		readNote,
 		logNotes
