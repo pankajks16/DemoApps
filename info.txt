@@ -1,3 +1,17 @@
+IMPORTANT-POINTS-NODE_JS-UDEMY
+
+--save : this updates the content of the package.json file amd save it there. So, even if we remove node_modules folder and simply run "npm install" (without double quotes) then it will install all the node packages mentioned in the package.json file. So, this save flag is necessary to update the package.json file.
+
+
+ 
+dont touch node_modules folder. Dont put the custom made module or file inside the node_modules folder. ELse, it override the existing functionality with the newly implemented functionality.
+
+
+nodemon is a command line uitility. It will be like: 
+nodemon <filename with .js extension>
+It helps to dynamically load the changes done in js file without executing the file again and again in the terminal.
+
+
 - shelljs
    
    ShellJS is a portable (Windows/Linux/OS X) implementation of Unix shell commands on top of the Node.js API. You can use it to eliminate your shell script's dependency on Unix while still keeping its familiar and powerful commands. You can also install it globally so you can run it from outside Node projects - say goodbye to those  gnarly Bash scripts!
@@ -47,8 +61,55 @@ then use either 'n' or 'c' and then use 'repl' command to start inspecting the o
  $ node --inspect-brk debugging.js (press enter then)
 
  
+ Then an o/p like below will show up on command terminal
+
+$
+[nodemon] 1.12.5
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `node --inspect-brk debugging.js`
+Debugger listening on ws://127.0.0.1:9229/49bf4464-7f71-4143-a6d4-9450677c0c67
+For help see https://nodejs.org/en/docs/inspector
+Debugger attached.
+
+Then either chrome will open automatically or you need to type: 
+'chrome://inspect' in the chrome address bar and then press enter. click on
+'Open dedicated DevTools for Node' ... then a window will open up to debug it.
+ 
+
+-
+
+YARGS COMMNAD METHOD
+
+syntax: .command(cmd, desc, [builder], [handler]).help().argv;
 
 
+
+var newArgv = yargs
+  .command('addNote', 'please type press 1', {
+    title: {
+      describe: "Title for the object to store",
+      demand: true,
+      alias: 't'
+    },
+    content: {
+    describe: "content fot the title passed",
+    demand: true,
+    alias: 'c'  
+    }
+  })
+  .command('read', 'Read the content', {
+    title: {
+      describe: "Title for which the content is retrieved",
+      demand: true,
+      alias: 't'
+    }
+  }).
+help().
+argv;
+
+
+-
 
 
 
